@@ -16,7 +16,7 @@ connectDB();
 app.use(cors({ origin: true, credentials: true }));
 
 // Init Middleware
-pp.use(express.static(path.resolve(__dirname, "./frontend/ny-app/build")));
+app.use(express.static(path.resolve(__dirname, "./frontend/ny-app/build")));
 app.use(express.json({ extended: false }));
 
 app.get("*", function (request, response) {
