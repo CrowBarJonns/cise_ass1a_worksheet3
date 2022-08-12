@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, useParams, useLocation } from 'react-router-dom';
 import './App.css';
 
 import CreateBook from './components/CreateBook';
@@ -15,7 +15,7 @@ class App extends Component {
           <Route exact path='/' element={<ShowBookList />} />
           <Route path='/create-book' element={<CreateBook />} />
           <Route path='/edit-book/:id' element={<UpdateBookInfo />} />
-          <Route path='/show-book/:id' element={<ShowBookDetails />} />
+          <Route path='/show-book/:id' element={<ShowBookDetails animate={true} />} />
         </Routes>
       </Router>
     );
