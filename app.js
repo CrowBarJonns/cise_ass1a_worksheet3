@@ -1,5 +1,5 @@
 // app.js
-
+const path = require("path");
 const express = require('express');
 const connectDB = require('./config/db');
 var cors = require('cors');
@@ -16,9 +16,12 @@ connectDB();
 app.use(cors({ origin: true, credentials: true }));
 
 // Init Middleware
+pp.use(express.static(path.resolve(__dirname, "./frontend/ny-app/build")));
 app.use(express.json({ extended: false }));
 
-app.get('/', (req, res) => res.send('Hello world!'));
+app.get("*", function (request, response) {
+    response.sendFile(path.resolve(__dirname, "./frontend/ny-app/", "index.html"));
+  });
 
 // use Routes
 app.use('/api/books', books);
